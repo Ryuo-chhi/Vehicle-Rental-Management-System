@@ -82,4 +82,26 @@ public class Vehicle {
                 ", isAvailable=" + isAvailable +
                 '}';
     }
+    //rent the vehicle
+    public void rent(){
+        if (isAvailable) {
+            isAvailable = false;
+            System.out.println(model+ "has been rented.");
+        }else {
+            System.out.println(model+"is already rented.");
+        }
+    }
+    // return the vehicle
+    public void returnVehicle(){
+        if (!isAvailable) {
+            isAvailable = true;
+            System.out.println(model + "has been returned.");
+        }else {
+            System.out.println(model +"was not rented.")
+        }
+    }
+    //Calculate rent for days
+    public double calculateRent(int days){
+        return price * days;
+    }
 }
