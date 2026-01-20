@@ -1,3 +1,5 @@
+package Vehicle_data;
+
 public class Vehicle {
     private int vehicleId;
     private String powertrain, vehicleClass, brand, model;
@@ -72,7 +74,7 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
+        return "Vehicle_data.Vehicle{" +
                 "vehicleId=" + vehicleId +
                 ", powertrain='" + powertrain + '\'' +
                 ", vehicleClass='" + vehicleClass + '\'' +
