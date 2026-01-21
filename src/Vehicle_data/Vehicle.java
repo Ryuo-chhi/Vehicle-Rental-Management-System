@@ -99,7 +99,7 @@ public class Vehicle {
             isAvailable = true;
             System.out.println(model + "has been returned.");
         }else {
-            System.out.println(model +"was not rented.")
+            System.out.println(model +"was not rented.");
         }
     }
     //Calculate rent for days
