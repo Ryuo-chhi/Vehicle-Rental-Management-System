@@ -74,7 +74,7 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle_data.Vehicle{" +
+        return "{" +
                 "vehicleId=" + vehicleId +
                 ", powertrain='" + powertrain + '\'' +
                 ", vehicleClass='" + vehicleClass + '\'' +
