@@ -80,7 +80,7 @@ public class Vehicle {
                 ", vehicleClass='" + vehicleClass + '\'' +
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
-                ", price=" + price +
+                ", price=" + price +"$" +
                 ", isAvailable=" + isAvailable +
                 '}';
     }
