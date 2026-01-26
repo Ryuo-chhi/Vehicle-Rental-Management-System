@@ -5,14 +5,16 @@ public class Customer {
     /*----- customer_data.Customer Field -----*/
     private int customerId;
     private String customerName;
+    private String customerDOB;
     private String customerAddress;
     private String customerEmail;
     private String customerPhone;
 
     /*----- customer_data.Customer Constructor -----*/
-    public Customer(int customerId, String customerName, String customerAddress, String customerEmail, String customerPhone){
+    public Customer(int customerId, String customerName, String customerDOB, String customerAddress, String customerEmail, String customerPhone){
         this.customerId = customerId;
         this.customerName = customerName;
+        this.customerDOB = customerDOB;
         this.customerAddress = customerAddress;
         this.customerEmail = customerEmail;
         this.customerPhone = customerPhone;
@@ -24,6 +26,9 @@ public class Customer {
     }
     public String getCustomerName(){
         return customerName;
+    }
+    public String getCustomerDOB(){
+        return customerDOB;
     }
     public String getCustomerAddress(){
         return customerAddress;
@@ -42,6 +47,9 @@ public class Customer {
     public void setCustomerName(String customerName){
         this.customerName = customerName;
     }
+    public void setCustomerDOB(String customerDOB){
+        this.customerDOB = customerDOB;
+    }
     public void setCustomerAddress(String customerAddress){
         this.customerAddress = customerAddress;
     }
@@ -56,7 +64,7 @@ public class Customer {
     /*-----  -----*/
     public static void main(String[] args){
         CustomerOperations ops = new CustomerOperations();
-        ops.addCustomer();
+        Customer c1 = new Customer(1, "David-Cassiano", "05-10-2008", "Road-6A", "david.yeat123@gmail.com", "973-506-560");
     }
 }
 

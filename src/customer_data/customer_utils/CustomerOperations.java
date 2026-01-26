@@ -1,53 +1,62 @@
 package customer_data.customer_utils;
 import customer_data.Customer;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class CustomerOperations {
 
-    private List<Customer> customerList;
-    
-
-    // Scanner object
-    private Scanner reader;
-
-    public CustomerOperations(){
-        this.customerList = new ArrayList<>();
-        this.reader = new Scanner(System.in);
-    }
+    private final ArrayList<Customer> customerList = new ArrayList<>();
 
     /*=============== Add customer ===============*/
-    public void addCustomer(){
-        // Input new customer information
-        System.out.println("/*===== Enter Customer Information =====*/");
-        System.out.print("Enter Customer ID: ");
-        int ID = reader.nextInt();
-        reader.nextLine();
-
-        System.out.print("Enter Customer Name: ");
-        String name = reader.nextLine();
-
-        System.out.print("Enter Customer Address: ");
-        String address = reader.nextLine();
-
-        System.out.print("Enter Customer Email: ");
-        String email = reader.nextLine();
-
-        System.out.print("Enter Customer Tel: ");
-        String tel = reader.nextLine();
-
-        Customer c1 = new Customer(ID, name, address, email, tel);
-
-        System.out.println("/*======================================*/");
-        customerList.add(c1);
-        System.out.println("Customer added successfully!");
+    public void addCustomer(Customer c1){
+        if(c1 != null){
+            customerList.add(c1);
+            System.out.println("Customer added successfully.");
+        }
     }
 
     /*=============== Delete customer ===============*/
-    public void deleteCustomer(){
-        // Delete customer by ID
-        System.out.println("/*=============== Delete Customer By ID ============== */");
-        System.out.println("Enter Customer ID: ");
+    public void deleteCustomer(int id){
+        boolean deleted = customerList.removeIf(customer -> customer.getCustomerId() == id);
+        if(deleted){
+            System.out.println("Customer deleted successfully.");
+        } else {
+            System.out.println("Customer not found!");
+        }
+    }
+
+    /*=============== Update customer ===============*/
+    public void updateCustomer(int id, String name, String dob, String address, String email, String phone){
+        for(Customer c : customerList){
+            if(c.getCustomerId() == id){
+                c.setCustomerName(name);
+                c.setCustomerDOB(dob);
+                c.setCustomerAddress(address);
+                c.setCustomerEmail(email);
+                c.setCustomerPhone(phone);
+                System.out.println("Customer updated successfully.");
+                return;
+            }
+        }
+        System.out.println("Customer not found!");
+    }
+
+    /*=============== Search customer (By ID) ===============*/
+    public Customer searchCustomerById(int id){
+        for(Customer c : customerList){
+            if(c.getCustomerId() == id){
+                return c;
+            }
+        }
+        return null;
+    }
+
+    /*=============== Search customer (By Name) ===============*/
+    public Customer searchCustomerByName(String name){
+        for(Customer c : customerList){
+            if(c.getCustomerName().equalsIgnoreCase(name)){
+                return c;
+            }
+        }
+        return null;
     }
 }
