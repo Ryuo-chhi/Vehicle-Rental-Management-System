@@ -1,23 +1,24 @@
 package customer_data;
+import customer_data.customer_utils.CustomerOperations;
 
 public class Customer {
-    /* customer_data.Customer Field */
+    /*----- customer_data.Customer Field -----*/
     private int customerId;
     private String customerName;
     private String customerAddress;
     private String customerEmail;
-    private String customerTel;
+    private String customerPhone;
 
-    /* customer_data.Customer Constructor */
-    public Customer(int customerId, String customerName, String customerAddress, String customerEmail, String customerTel){
+    /*----- customer_data.Customer Constructor -----*/
+    public Customer(int customerId, String customerName, String customerAddress, String customerEmail, String customerPhone){
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerAddress = customerAddress;
         this.customerEmail = customerEmail;
-        this.customerTel = customerTel;
+        this.customerPhone = customerPhone;
     }
 
-    /* Getter methods */
+    /*----- Getter methods -----*/
     public int getCustomerId(){
         return customerId;
     }
@@ -30,11 +31,11 @@ public class Customer {
     public String getCustomerEmail(){
         return customerEmail;
     }
-    public String getCustomerTel(){
-        return customerTel;
+    public String getCustomerPhone(){
+        return customerPhone;
     }
 
-    /* Setter methods */
+    /*----- Setter methods -----*/
     public void setCustomerId(int customerId){
         this.customerId = customerId;
     }
@@ -47,7 +48,15 @@ public class Customer {
     public void setCustomerEmail(String customerEmail){
         this.customerEmail = customerEmail;
     }
-    public void setCustomerTel(String customerTel){
-        this.customerTel = customerTel;
+    public void setCustomerPhone(String customerPhone){
+        this.customerPhone = customerPhone;
+    }
+
+
+    /*-----  -----*/
+    public static void main(String[] args){
+        CustomerOperations ops = new CustomerOperations();
+        ops.addCustomer();
     }
 }
+
