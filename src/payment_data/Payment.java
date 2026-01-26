@@ -1,13 +1,16 @@
 package payment_data;
 
+import Vehicle_data.Vehicle;
+import customer_data.Customer;
+
 public class Payment {
     // 1. Primary Identifier
     private int paymentID;
 
     // 2. Foreign Keys / Relationships (Links to other entities)
-    private int customerID;
-    private int vehicleID;
-    private int driverID;
+    private Customer customer; //get customerID from Customer class
+    private Vehicle vehicle; //get vehicleID from Vehicle class
+    private String driverID; //if exists
 
     // 3. Core Business Data (The "How much")
     private double pricePerDay;
@@ -21,12 +24,10 @@ public class Payment {
     private String paymentStatus;
 
     // Constructor
-    public Payment(int paymentID, int customerID, int vehicleID, int driverID, double pricePerDay, double damageFee,
-                   double discount, double amount, String paymentMethod,
-                   String date, String paymentStatus) {
+    public Payment(int paymentID, Customer customer, Vehicle vehicle, String driverID, double pricePerDay, double damageFee, double discount, double amount, String paymentMethod, String date, String paymentStatus) {
         this.paymentID = paymentID;
-        this.customerID = customerID;
-        this.vehicleID = vehicleID;
+        this.customer = customer;
+        this.vehicle = vehicle;
         this.driverID = driverID;
         this.pricePerDay = pricePerDay;
         this.damageFee = damageFee;
@@ -35,6 +36,12 @@ public class Payment {
         this.paymentMethod = paymentMethod;
         this.date = date;
         this.paymentStatus = paymentStatus;
+    }
+
+    // calculate total amount
+    public void calculateTotalAmount(int daysRented) {
+        double total = (pricePerDay * daysRented) + damageFee - discount;
+        this.amount = total;
     }
 
     // Getters and Setters
@@ -46,27 +53,27 @@ public class Payment {
         this.paymentID = paymentID;
     }
 
-    public int getCustomerID() {
-        return customerID;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public int getVehicleID() {
-        return vehicleID;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public void setVehicleID(int vehicleID) {
-        this.vehicleID = vehicleID;
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 
-    public int getDriverID() {
+    public String getDriverID() {
         return driverID;
     }
 
-    public void setDriverID(int driverID) {
+    public void setDriverID(String driverID) {
         this.driverID = driverID;
     }
 
@@ -126,19 +133,21 @@ public class Payment {
         this.paymentStatus = paymentStatus;
     }
 
-    // calculate total amount
-    public void calculateTotalAmount(int rentalDays) {
-        double total = (pricePerDay * rentalDays) + damageFee - discount;
-        this.amount = total;
-    }
-
     // toString method for easy representation
     @Override
     public String toString() {
-        return "Payment [paymentID=" + paymentID + ", customerID=" + customerID + ", vehicleID=" + vehicleID
-                + ", driverID=" + driverID + ", pricePerDay=" + pricePerDay + ", damageFee=" + damageFee + ", discount="
-                + discount + ", amount=" + amount + ", paymentMethod=" + paymentMethod + ", date=" + date
-                + ", paymentStatus=" + paymentStatus + "]";
+        return "Payment{" +
+                "paymentID=" + paymentID +
+                ", customer=" + customer +
+                ", vehicle=" + vehicle +
+                ", driverID='" + driverID + '\'' +
+                ", pricePerDay=" + pricePerDay +
+                ", damageFee=" + damageFee +
+                ", discount=" + discount +
+                ", amount=" + amount +
+                ", paymentMethod='" + paymentMethod + '\'' +
+                ", date='" + date + '\'' +
+                ", paymentStatus='" + paymentStatus + '\'' +
+                '}';
     }
-    
 }
