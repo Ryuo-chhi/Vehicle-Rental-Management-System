@@ -1,5 +1,6 @@
 import Vehicle_data.Vehicle;
 import Vehicle_data.VehicleSystem;
+import Vehicle_data.RentSystem;
 
 import java.util.Scanner;
 
@@ -16,6 +17,7 @@ public class ManagementSystem {
         // System.out.println(v1.toString());
 
         VehicleSystem Garage = new VehicleSystem();
+        RentSystem rentSystem = new RentSystem();
         Garage.addVehicle(v1);
         Garage.addVehicle(v2);
 
@@ -33,6 +35,8 @@ public class ManagementSystem {
                     2. Remove vehicle
                     3. Update vehicle
                     4. Show all vehicles
+                    5. Rent a vehicle
+                    6. Show all rental records
                     """);
             System.out.print("Enter choice: ");
             choice = scanner.nextInt();
@@ -77,6 +81,28 @@ public class ManagementSystem {
                 case 4:
                     System.out.println();
                     Garage.vehicleList();
+                    break;
+                case 5:
+                    System.out.print("Enter vehicle ID(int): ");
+                    idSearch = scanner.nextInt();
+                    scanner.nextLine();
+
+                    Vehicle vehicleToRent = Garage.findVehicle(idSearch);
+                    if (vehicleToRent != null) {
+                        System.out.print("Enter customer name: ");
+                        String customerName = scanner.nextLine();
+
+                        System.out.print("Enter number of days: ");
+                        int days = scanner.nextInt();
+
+                        rentSystem.rentVehicle(vehicleToRent, customerName, days);
+                    } else {
+                        System.out.println("Vehicle not found!");
+                    }
+                    break;
+                case 6:
+                    System.out.println();
+                    rentSystem.showRents();
                     break;
                 default:
                     System.out.println("Invalid choice!");

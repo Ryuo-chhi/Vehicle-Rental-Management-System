@@ -105,4 +105,13 @@ public class VehicleSystem {
         System.out.println("Vehicle not found!");
 
     }
+
+    public Vehicle findVehicle(int id) {
+        for (Vehicle v : garage) { 
+            if (v.getVehicleId() == id) {
+                return v;
+            }
+        }
+        return null;
+    }
 }
