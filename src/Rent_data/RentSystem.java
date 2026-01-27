@@ -1,5 +1,6 @@
-package Vehicle_data;
+package Rent_data;
 
+import Vehicle_data.Vehicle;
 import customer_data.Customer;
 import payment_data.Payment;
 import payment_data.PaymentOperations;

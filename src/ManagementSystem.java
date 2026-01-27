@@ -1,6 +1,6 @@
 import Vehicle_data.Vehicle;
 import Vehicle_data.VehicleSystem;
-import Vehicle_data.RentSystem;
+import Rent_data.RentSystem;
 import customer_data.Customer;
 import customer_data.customer_utils.CustomerOperations;
 
@@ -166,7 +166,6 @@ public class ManagementSystem {
 
                         System.out.print("Enter date (YYYY-MM-DD): ");
                         String paymentDate = scanner.nextLine();
-
                         rentSystem.processPayment(rentIdForPayment, customerForPayment, damageFee, discount,
                                 paymentMethod, paymentDate);
                     } else {

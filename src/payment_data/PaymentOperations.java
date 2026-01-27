@@ -30,7 +30,7 @@ public class PaymentOperations {
         System.out.println("Payment with ID " + payment.getPaymentID() + " not found.");
     }
     // getPayment (show details)
-    public Payment getPayment(int paymentID) {
+    public Payment findPayment(int paymentID) {
         // Logic to retrieve payment from the database or data structure
         for (Payment payment : paymentList) {
             if (payment.getPaymentID() == paymentID) {

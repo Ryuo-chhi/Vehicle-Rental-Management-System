@@ -1,5 +1,6 @@
-package Vehicle_data;
+package Rent_data;
 
+import Vehicle_data.Vehicle;
 import payment_data.Payment;
 
 public class Rent {

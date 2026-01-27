@@ -83,7 +83,7 @@ public class VehicleSystem {
 
                         case 5:
                             System.out.print("New Price: ");
-                            int price = scanner.nextInt();
+                            double price = scanner.nextDouble();
                             scanner.nextLine(); // consume the leftover newline
                             item.setPrice(price);
                             break;
