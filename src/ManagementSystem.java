@@ -152,7 +152,7 @@ public class ManagementSystem {
                     int custId = scanner.nextInt();
                     scanner.nextLine();
 
-                    Customer customerForPayment = customerOps.findCustomerById(custId);
+                    Customer customerForPayment = customerOps.searchCustomerById(custId);
                     if (customerForPayment != null) {
                         System.out.print("Enter damage fee (0 if none): ");
                         double damageFee = scanner.nextDouble();

@@ -60,11 +60,6 @@ public class CustomerOperations {
         return null;
     }
 
-    /* =============== Find customer by ID =============== */
-    public Customer findCustomerById(int id) {
-        return searchCustomerById(id);
-    }
-
     /* =============== Show all customers =============== */
     public void showAllCustomers() {
         if (customerList.isEmpty()) {
