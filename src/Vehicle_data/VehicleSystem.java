@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VehicleSystem {
-    private ArrayList<Vehicle> garage = new ArrayList<>();
+    private ArrayList<Vehicle> garage ;
+
+    public VehicleSystem() {
+        this.garage = new ArrayList<>();
+    }
 
     public void addVehicle(Vehicle v1) {
         garage.add(v1);
