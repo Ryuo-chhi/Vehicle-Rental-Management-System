@@ -1,5 +1,4 @@
 package customer_data.customer_utils;
-
 import customer_data.Customer;
 import java.util.ArrayList;
 

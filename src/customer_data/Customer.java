@@ -59,12 +59,5 @@ public class Customer {
     public void setCustomerPhone(String customerPhone){
         this.customerPhone = customerPhone;
     }
-
-
-    /*-----  -----*/
-    public static void main(String[] args){
-        CustomerOperations ops = new CustomerOperations();
-        Customer c1 = new Customer(1, "David-Cassiano", "05-10-2008", "Road-6A", "david.yeat123@gmail.com", "973-506-560");
-    }
 }
 
